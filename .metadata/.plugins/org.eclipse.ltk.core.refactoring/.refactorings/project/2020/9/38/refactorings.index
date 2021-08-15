@@ -1,0 +1,67 @@
+1599968247323	Copy file
+1599968276941	Copy compilation unit
+1599968380985	Copy compilation unit
+1599968404006	Copy compilation unit
+1599968470849	Copy compilation unit
+1599968505957	Copy file
+1599968529086	Delete element
+1599968559364	Copy file
+1599971642255	Delete element
+1599976210957	Rename resource 'board.jsp'
+1599976215902	Rename resource 'write.jsp'
+1599984369739	Move folder
+1599984424561	Delete element
+1599986488241	Delete elements
+1599986513636	Delete elements
+1600008283001	Delete elements
+1600008307568	Delete element
+1600010681311	Copy file
+1600010834131	Move folders
+1600011467104	Delete elements
+1600012883209	Delete elements
+1600012886625	Delete element
+1600012923858	Delete elements
+1600012950335	Delete elements
+1600012953303	Delete elements
+1600014634739	Delete element
+1600014639131	Delete elements
+1600014697003	Delete element
+1600074577603	Rename package 'com.common.dao'
+1600074583617	Rename package 'com.common.domain'
+1600074589332	Rename package 'com.common.interceptor'
+1600074594463	Rename package 'com.spring.controller'
+1600074600380	Rename package 'com.spring.dao'
+1600074605663	Rename package 'com.spring.service'
+1600078333684	Rename resource 'index.html'
+1600078374866	Rename resource 'index.jsp'
+1600078379815	Copy file
+1600078390035	Delete element
+1600078406630	Rename resource 'index.jsp'
+1600080547066	Delete elements
+1600082228034	Delete element
+1600082408407	Delete elements
+1600082549218	Delete elements
+1600083540179	Delete elements
+1600083664576	Move file
+1600083668243	Rename resource 'login.jsp'
+1600086244719	Delete elements
+1600088593586	Delete elements
+1600092379118	Delete elements
+1600093874400	Rename resource 'lib'
+1600094150214	Rename resource 'vendor'
+1600094257820	Move file
+1600094508878	Move file
+1600095392796	Delete elements
+1600095575436	Delete elements
+1600095612900	Rename resource 'vendor'
+1600097219937	Rename resource 'test.jsp'
+1600098110130	Delete element
+1600251609785	Copy file
+1600251768464	Move file
+1600251865449	Move file
+1600252988280	Delete element
+1600334337335	Move files
+1600348535424	Delete element
+1600356615869	Copy compilation unit
+1600357618141	Copy compilation unit
+1600359019424	Encapsulate field 'pageSize'

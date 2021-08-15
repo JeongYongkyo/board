@@ -1,0 +1,39 @@
+1598951616045	Move folders
+1598963814866	Move file
+1598964552212	Rename resource 'index.jsp'
+1598964641212	Delete element
+1598964655583	Move file
+1598964857724	Delete element
+1598966681378	Rename resource 'first.jsp'
+1598967311499	Rename type 'SampleController'
+1598967352969	Rename type 'SampleDAO'
+1598967373682	Rename type 'SampleService'
+1598967398657	Rename type 'SampleServiceImpl'
+1598967617781	Rename resource 'project.jsp'
+1598967671359	Copy file
+1598967739428	Delete element
+1598968751047	Copy compilation unit
+1598968852912	Copy compilation unit
+1598968863297	Copy compilation unit
+1598968921527	Rename resource 'mapper.xml'
+1598968924957	Rename resource 'system_mapper.xml'
+1598968930827	Rename resource 'System_mapper.xml'
+1598968960986	Rename resource 'system_mapper.xml'
+1598969411046	Copy compilation unit
+1598969503931	Rename package 'com.common.logger'
+1598969535263	Move compilation unit
+1598969544591	Rename compilation unit 'LoginDAO.java'
+1598969754124	Copy file
+1598971371201	Move compilation unit
+1598971626695	Copy compilation unit
+1599037818823	Move files
+1599037825329	Delete element
+1599048503610	Delete element
+1599056595425	Copy file
+1599056601212	Rename resource 'jquery.serialize-object.js.js'
+1599128846751	Move files
+1599129648290	Rename resource 'IdCheckForm.jsp'
+1599129686773	Rename resource 'checkId.jsp'
+1599134832748	Delete elements
+1599134857723	Rename resource 'css'
+1599134861898	Rename resource 'js'

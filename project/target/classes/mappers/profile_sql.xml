@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.java.spring.service.ProfileService">
+
+	<select id="selectUserInfo" parameterType="string" resultType="hashmap">
+		<![CDATA[
+		SELECT USER_ID, NAME, GENDER, BIRTH, EMAIL, PHONE, ADDRESS
+		FROM YONGKYO.TB_USER
+		WHERE USER_ID = #{u_id}
+		]]>
+	</select> 
+
+	<update id="editProfile" parameterType="hashMap">
+		<![CDATA[
+		UPDATE YONGKYO.TB_USER
+		SET 
+			PASSWORD=#{u_pw}, 
+			CREA_DTM=SYSDATE, 
+			NAME=#{u_name}, 
+			GENDER=#{gender}, 
+			BIRTH=#{p_birth}, 
+			EMAIL=#{p_mail}, 
+			PHONE=#{p_phone}, 
+			ADDRESS=#{u_addr}
+		WHERE USER_ID=#{p_id}
+		]]>
+	</update>
+	
+	<delete id="deleteProfile" parameterType="hashMap">
+		<![CDATA[
+		DELETE FROM YONGKYO.TB_USER
+		WHERE USER_ID=#{u_id}
+		]]>
+	</delete>
+	
+	<select id="checkDeleteProfile" parameterType="hashMap" resultType="int">
+	 	<![CDATA[
+		SELECT COUNT(*) 
+		FROM YONGKYO.TB_USER
+		WHERE USER_ID = #{u_id}
+		AND PASSWORD = #{u_pw}
+		]]>
+	</select>
+	
+</mapper>
+

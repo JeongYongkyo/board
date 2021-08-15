@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.java.spring.service.BoardService">
+
+	<select id="selectBoardList" parameterType="BoardVO" resultType="hashmap">
+		<![CDATA[
+			SELECT   IDX
+					,TITLE
+					,NAME 
+					,CREA_DTM
+					,HIT_CNT
+			FROM (
+						SELECT
+							A.IDX
+							,A.TITLE
+							,B.NAME 
+							,TO_CHAR(A.CREA_DTM, 'YYYY-MM-DD HH24:MI:SS') AS CREA_DTM 
+							,A.HIT_CNT
+							,ROW_NUMBER() OVER (ORDER BY IDX DESC) AS rNum
+						FROM TB_BOARD A LEFT OUTER JOIN TB_USER B
+						ON A.CREA_ID = B.USER_ID
+						WHERE DEL_FLAG = 'N'
+					)
+			WHERE rNum BETWEEN #{rowStart} AND #{rowEnd}
+			ORDER BY IDX DESC
+			]]>
+	</select> 
+
+	<select id="boardListCount" resultType="int">
+		<![CDATA[
+			SELECT COUNT(IDX)
+			FROM TB_BOARD 
+			WHERE IDX > 0
+			]]>
+	</select> 
+	
+	<select id="selectBoardContent" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+				IDX
+				,CREA_ID
+				,TITLE
+				,CONTENTS
+			FROM TB_BOARD
+			WHERE IDX = #{idx}
+			ORDER BY IDX DESC
+		]]>
+	</select>
+	
+	<insert id="insertBoardWrite" parameterType="hashMap">
+		<![CDATA[
+		INSERT INTO YONGKYO.TB_BOARD (
+				IDX,
+				TITLE,
+				CONTENTS,
+				CREA_ID,
+				CREA_DTM,
+				HIT_CNT	
+		)
+		VALUES (
+				(SELECT NVL(MAX(IDX),0)+1 FROM TB_BOARD), 	
+				#{title}, 	
+				#{contents}, 	
+				#{login_id}, 	
+				SYSDATE, 	
+				'0'
+		)
+		]]>
+	</insert>
+	
+	<update id="updateBoardWrite" parameterType="hashMap">
+		<![CDATA[
+		UPDATE YONGKYO.TB_BOARD
+			SET 
+				TITLE=#{title}, 
+				CONTENTS=#{contents}, 
+				CREA_DTM=SYSDATE ,
+				CREA_ID=#{login_id}
+		WHERE IDX=#{index}
+		]]>
+	</update>
+	
+	<update id="delBoardWrite" parameterType="hashMap">
+		<![CDATA[
+		UPDATE YONGKYO.TB_BOARD
+			SET 
+				DEL_FLAG='Y' 
+		WHERE IDX=#{index}
+		]]>
+	</update>
+	
+		<update id="plusCnt" parameterType="int">
+		<![CDATA[
+		UPDATE YONGKYO.TB_BOARD
+			SET 
+				HIT_CNT = HIT_CNT + 1
+		WHERE IDX=#{index}
+		]]>
+	</update>
+</mapper>
+

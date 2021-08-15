@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.spring.service.LoginService">
+	<select id="selectLoginInfo" parameterType="hashMap" resultType="hashMap">
+		<![CDATA[
+		SELECT *
+		FROM YONGKYO.TB_USER
+		WHERE USER_ID = #{u_id}
+		AND PASSWORD = #{u_pw}
+		 ]]>
+	</select>
+
+	<insert id="insertRegisterInfo" parameterType="hashMap">
+		<![CDATA[
+		INSERT INTO YONGKYO.TB_USER (
+				USER_NO,
+				USER_ID,
+				PASSWORD,
+				CREA_DTM,
+				NAME,	
+				GENDER,	
+				BIRTH,	
+				EMAIL,	
+				PHONE,	
+				ADDRESS
+		)
+		VALUES (
+				(SELECT NVL(MAX(USER_NO),0)+1 FROM TB_USER), 	
+				#{u_id}, 	
+				#{u_pw}, 	
+				SYSDATE, 	
+				#{u_name}, 	
+				#{gender}, 	
+				#{birth}, 	
+				#{u_mail}, 	
+				#{u_phone}, 	
+				#{u_addr})
+		]]>
+	</insert>
+	
+	<select id="checkRegisterDuplicate" parameterType="hashMap" resultType="int">
+	 	<![CDATA[
+		SELECT COUNT(*) 
+		FROM YONGKYO.TB_USER
+		WHERE USER_ID = #{u_id}
+		]]>
+	</select>
+	
+	<insert id="insertVisitor" parameterType="VisitorVO">
+		INSERT INTO YONGKYO.TB_VISITOR (
+			VISIT_NO,
+			USER_ID, 
+			VISIT_IP, 
+			VISIT_TIME, 
+			VISIT_REFER, 
+			VISIT_AGENT
+		)
+		VALUES(
+			(SELECT NVL(MAX(VISIT_NO),0)+1 FROM TB_VISITOR), 
+			#{user_id},
+			#{visit_ip},
+			SYSDATE, 
+			#{visit_refer},
+			#{visit_agent}
+		)
+	</insert>
+</mapper>
